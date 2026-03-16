@@ -1,0 +1,23 @@
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.dvi
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Generated PDFs (built in CI)
+*.pdf
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+
+# macOS
+.DS_Store
+
+# Claude Code
+.claude/

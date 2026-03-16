@@ -1,0 +1,180 @@
+\documentclass[a4paper,10pt]{article}
+
+% Page geometry
+\usepackage[margin=1.2cm]{geometry}
+
+% Section formatting
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+
+% Spacing and typography
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+
+% Colors
+\usepackage{xcolor}
+
+% Dark mode support (pass -jobname=cv-dark and \def\darkmode{} via CLI)
+\newif\ifdarkmode
+\ifdefined\darkmode\darkmodetrue\fi
+\ifdarkmode
+  \definecolor{bg}{HTML}{121416}
+  \definecolor{fg}{HTML}{e0e0e0}
+  \definecolor{accent}{HTML}{8cc5cf}
+  \definecolor{rule}{HTML}{4f5663}
+\else
+  \definecolor{bg}{HTML}{ffffff}
+  \definecolor{fg}{HTML}{000000}
+  \definecolor{accent}{HTML}{0645AD}
+  \definecolor{rule}{HTML}{000000}
+\fi
+
+% Icons + links
+\usepackage[colorlinks=true, urlcolor=accent, linkcolor=accent]{hyperref}
+\usepackage{fontawesome5}
+
+% Allow slightly looser line breaking to avoid overfull hboxes
+\tolerance=400
+\emergencystretch=2em
+
+% List styling
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=*}
+
+% Horizontal rule under sections
+\newcommand{\mysectionrule}{\vspace{-4pt}\noindent{\color{rule}\rule{\linewidth}{0.5pt}}\par\vspace{4pt}}
+
+\pagenumbering{gobble}
+
+\begin{document}
+\pagecolor{bg}
+\color{fg}
+
+% ============================================================
+% HEADER
+% ============================================================
+\begin{center}
+    {\LARGE \textbf{Andr\'{e} A. Nogueira}} \\[2pt]
+    {\large Senior Platform Engineer} \\[4pt]
+    \faIcon{map-marker-alt} Lisbon, Portugal \quad
+    \faIcon{envelope} \href{mailto:andre@techquests.dev}{andre@techquests.dev} \quad
+    \faIcon{globe} \href{https://techquests.dev}{techquests.dev} \quad
+    \faIcon{github} \href{https://github.com/aanogueira}{github.com/aanogueira} \quad
+    \faIcon{linkedin} \href{https://linkedin.com/in/andre-a-nogueira}{LinkedIn}
+\end{center}
+
+% ============================================================
+% SUMMARY
+% ============================================================
+\section*{Summary}
+\mysectionrule
+Platform engineering leader with 6+ years of experience building developer-centric infrastructure at scale,
+specializing in internal developer platforms, cloud infrastructure (GCP, AWS, Azure), and DevSecOps.
+
+\begin{itemize}
+  \item \textbf{Scale:} Managing 1000+ Kubernetes clusters and enabling self-service infrastructure for 500+ engineers.
+  \item \textbf{Developer Velocity:} Automated end-to-end onboarding/offboarding from days to 30 minutes (99\% reduction).
+  \item \textbf{Platform Tooling:} Built a cloud abstraction platform, infrastructure oversight system, and permission escalation tool --- all with monitoring, alerting, and audit trails.
+  \item \textbf{OSS \& Community:} Upstream Terraform GCP contributions, technical blog at techquests.dev, author company-wide internal courses.
+\end{itemize}
+
+% ============================================================
+% EXPERIENCE
+% ============================================================
+\section*{Professional Experience}
+\mysectionrule
+
+\subsection*{Mollie}
+\textit{Leading European payment service provider.} \\
+\textbf{Senior Platform Engineer} \hfill Jan 2025 -- Present \\
+\textbf{Platform Engineer II} \hfill Jan 2024 -- Dec 2024 \\
+\textbf{Platform Engineer I} \hfill May 2023 -- Dec 2023
+
+\smallskip
+Promoted twice in under 2 years. Key contributions:
+
+\begin{itemize}
+  \item \textbf{Cloud Abstraction Platform:} Architected and maintained the company's internal cloud platform, managing 1000+ Kubernetes clusters and enabling self-service infrastructure provisioning for 500+ engineers, with Backstage-powered self-service interfaces.
+  \item \textbf{Infrastructure Oversight System:} Designed a 3-component system (data collector $\rightarrow$ policy analyzer via OPA/Rego $\rightarrow$ automated action engine) providing real-time visibility and automated remediation across all infrastructure, with full observability.
+  \item \textbf{Permission Escalation \& Security Hardening:} Built an audited, SOC2-compliant system enabling temporary cross-system privilege escalation with full audit trails; investigated and hardened broader infrastructure for SOC2 compliance.
+  \item \textbf{Project Lifecycle Automation:} End-to-end onboarding/offboarding (IAM $\rightarrow$ cluster provisioning $\rightarrow$ CI/CD $\rightarrow$ project scaffolding), reducing setup from days to 30 minutes.
+  \item \textbf{Certificate Management:} Full lifecycle certificate management solution with automated rotation and alerting.
+  \item \textbf{Service Mesh:} Implemented service-to-service mTLS via Envoy across all production workflows.
+  \item \textbf{Infrastructure as Code:} Authored reusable Terraform modules; contributed mTLS support to the upstream GCP Terraform provider and GCP Autoneg.
+  \item \textbf{Technical Leadership:} Author company-wide courses on the internal cloud platform and Kubernetes; active on-call rotation; mentor within 9-person platform team.
+\end{itemize}
+
+\subsection*{SteelEye --- Site Reliability Engineer \hfill Oct 2021 -- May 2023}
+\begin{itemize}
+  \item Designed and built end-to-end infrastructure for a fintech startup across AWS and Azure; implemented data pipelines (Airflow, Prefect), Kafka, and Elasticsearch.
+  \item Traveled on-site to banking clients (including UBS) for integration work under strict privacy constraints; drove SOC2, GDPR, and industry compliance certifications.
+  \item Built CI/CD with GitHub Actions; deployed ELK and LGTM stacks for observability; managed certificate lifecycle and on-call.
+  \item Co-led a distributed team of 6 (3 EU + 3 India) with engineering manager, owning system design and platform architecture.
+\end{itemize}
+
+\subsection*{Truphone (via Smart Consulting) --- DevSecOps Engineer \hfill Oct 2020 -- Sep 2021}
+\begin{itemize}
+  \item Architected an internal developer platform on AWS (EKS) for a 7-person team serving 300--400 engineers across \textasciitilde{}300 Kubernetes clusters, accelerating service bootstrapping and integration.
+  \item Implemented full lifecycle security controls: code scanning (SonarQube), custom CI runners/controllers, image scanning, and audit trails via GitLab CI.
+  \item Managed self-hosted Kafka and Spark clusters, Elasticsearch, API gateway configurations, and Keycloak identity provider.
+  \item Led a sub-team of 3 developers; built Go and TypeScript platform tooling; coordinated design and implementation of platform features.
+\end{itemize}
+
+\subsection*{La Redoute (via KCS IT) --- DevOps Engineer \hfill Sep 2019 -- Oct 2020}
+\begin{itemize}
+  \item Joined a newly formed cloud team (7 engineers) to migrate the company's entire on-prem infrastructure to GCP for 500+ engineers; managed 700+ Linux/Windows servers and legacy Puppet configurations.
+  \item Built CI/CD platform from scratch (Jenkins, GitLab CI) with custom runners; authored Terraform modules for all infrastructure, permissions, and service provisioning.
+  \item Self-hosted Kafka clusters, databases, and Kubernetes; created Helm charts and adapted Java workloads for cloud-native deployment.
+  \item Deployed LGTM stack and Nagios for observability; implemented Vault for secrets management; built recovery automation tooling in Go, Python, and Bash.
+\end{itemize}
+
+% ============================================================
+% PROJECTS
+% ============================================================
+\section*{Key Projects}
+\mysectionrule
+\textit{Details at \href{https://techquests.dev}{techquests.dev}}
+
+\begin{itemize}
+  \item \textbf{Code Search} --- Self-hosted platform for searching across repositories with bulk find-and-replace and automated PR creation (Go, Next.js, Zoekt, PostgreSQL)
+  \item \textbf{houndr} --- Trigram-based code search engine with sub-millisecond search and zero-copy mmap indexing (Rust, Axum, libgit2)
+  \item \textbf{git-context} --- CLI to switch between multiple Git identities and configurations; 93\%+ test coverage (Go)
+  \item \textbf{howto} --- AI-powered shell command assistant supporting OpenAI, Anthropic, Gemini, DeepSeek (Go)
+  \item \textbf{crontab-guru} --- TUI for creating/validating cron expressions with real-time feedback (Go, Bubble Tea)
+  \item \textbf{HashPad} --- Zero-knowledge encrypted notepad stored entirely in URL hash, no backend (Vanilla JS, Web Crypto API)
+  \item \textbf{Bip Bip} --- Co-founded logistics startup; incubated at Startup Leiria (SWOT, viability assessments, pitch decks); built initial demo and demand-matching algorithms; won mobility category prize at Startup Lisboa (Jul 2019 -- Jan 2025)
+\end{itemize}
+
+% ============================================================
+% EDUCATION
+% ============================================================
+\section*{Education}
+\mysectionrule
+
+\textbf{Postgraduate Coursework in Cybersecurity and Forensic Informatics} \hfill 2019 -- 2020 \\
+Polytechnic of Leiria \textit{(completed all coursework; thesis not pursued)}
+
+\textbf{Bachelor's in Computer Science} \hfill 2015 -- 2019 \\
+Polytechnic of Leiria
+
+% ============================================================
+% SKILLS
+% ============================================================
+\section*{Technical Skills}
+\mysectionrule
+\begin{itemize}
+  \item \textbf{Programming:} Go, Rust, TypeScript, Python, C, Bash
+  \item \textbf{Infrastructure:} Kubernetes, Terraform, ArgoCD, GitOps, Helm, Docker, Envoy, Backstage
+  \item \textbf{Cloud:} GCP, AWS, Azure
+  \item \textbf{Observability:} Prometheus, Grafana, Loki, Tempo, Mimir, Datadog, OpenTelemetry
+  \item \textbf{Data \& Messaging:} PostgreSQL, Redis, Kafka, RabbitMQ, GCP Pub/Sub, Elasticsearch, Spark
+  \item \textbf{Security:} Vault, SOPS, Trivy, SonarQube, mTLS, SOC2, OPA/Rego
+  \item \textbf{Other:} CI/CD (GitHub Actions, GitLab CI, Jenkins), Linux
+  \item \textbf{Languages:} Portuguese (Native), English (Fluent)
+\end{itemize}
+
+\end{document}

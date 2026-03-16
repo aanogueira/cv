@@ -1,0 +1,44 @@
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build cv.pdf
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: cv.tex
+
+      - name: Build cv-dark.pdf
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: cv-dark.tex
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: cv
+          path: |
+            cv.pdf
+            cv-dark.pdf
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest CV
+          files: |
+            cv.pdf
+            cv-dark.pdf
+          make_latest: true
+          body: |
+            Auto-generated CV from the latest `main` commit.
