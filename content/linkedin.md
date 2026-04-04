@@ -5,17 +5,11 @@ Senior Platform Engineer at Mollie | Building Internal Developer Platforms at Sc
 
 ## About
 
-Platform engineering leader building developer-centric infrastructure at scale. At Mollie, I support 500+ engineers across 1000+ Kubernetes clusters, designing and maintaining the internal cloud platform that powers the company's infrastructure.
+Promoted twice in under 2 years at Mollie, where I build and own the internal cloud platform behind 1000+ Kubernetes clusters and 500+ engineers. I design systems that let developers ship without thinking about infrastructure – self-service provisioning, automated compliance, service mesh, and onboarding that went from days to 30 minutes.
 
-I build platforms that eliminate friction: a cloud abstraction layer for self-service infrastructure provisioning, an infrastructure oversight system for real-time visibility and automated remediation, and a permission management tool with full audit trails and SOC2 compliance. My work spans the full stack — from Terraform modules and service mesh (mTLS via Envoy) to developer portals (Backstage) and project lifecycle automation that reduced onboarding from days to 30 minutes.
+Before Mollie, I've built platforms at this scale three times over: a full on-prem-to-GCP migration (700+ servers), fintech infrastructure with on-site banking integrations, and an internal developer platform serving 300+ engineers on EKS. I've led sub-teams, contributed upstream to the Terraform GCP provider, and write open-source tools in Go and Rust.
 
-Before Mollie, I migrated La Redoute's entire on-prem estate to GCP (700+ servers, 500+ engineers), built end-to-end fintech infrastructure at SteelEye with on-site banking integrations (UBS), and architected an internal developer platform at Truphone serving 300-400 engineers across ~300 Kubernetes clusters. I completed postgraduate coursework in Cybersecurity and Forensic Informatics.
-
-I contribute upstream to the Terraform GCP provider and GCP Autoneg, write about infrastructure and tooling at techquests.dev, and author company-wide courses on Kubernetes and cloud infrastructure. I build open-source tools in Go and Rust — code search engines, CLI utilities, and developer productivity tools.
-
-What drives me: making infrastructure invisible to developers. Self-service, automated, observable, and secure by default.
-
-Open to Senior and Staff-level Platform Engineering roles.
+What drives me: making infrastructure invisible. Open to Senior and Staff-level Platform Engineering roles.
 
 ---
 
@@ -125,3 +119,21 @@ Joined a newly formed cloud team (7 engineers) to migrate La Redoute's entire on
 - Deployed LGTM stack and Nagios for observability; implemented Vault for secrets management; built recovery automation tooling in Go, Python, and Bash.
 
 Skills: GCP, Azure, Kubernetes, Terraform, Jenkins, GitLab CI, Puppet, Kafka, Vault, Helm, LGTM, Nagios, Go, Python, Bash, Linux
+
+---
+
+### BipBip
+
+**Co-Founder**
+
+Side Project
+
+Lisbon, Portugal
+
+Co-founded a logistics startup connecting transportation companies with businesses needing delivery solutions. Built the initial proof-of-concept and helped shape the product direction.
+
+- Designed and built the PoC platform showcasing demand-to-resource matching for logistics operations.
+- Developed matching algorithms to optimize transportation allocation, demonstrating cost-effectiveness.
+- Presented at a startup competition, gaining early exposure and market feedback.
+
+Skills: Product Development, Algorithm Design, Startup Strategy
