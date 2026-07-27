@@ -18,7 +18,7 @@ Content is driven by [`site/data.json`](site/data.json), the source of truth for
 Preview locally:
 
 ```sh
-cd site && python3 -m http.server 8099   # then open http://localhost:8099
+make serve   # serves site/ at http://localhost:8099 (override with PORT=…)
 ```
 
 ## Build locally
@@ -32,6 +32,7 @@ make build  # build cv.pdf only
 make dark   # build cv-dark.pdf only
 make clean  # remove build artifacts
 make watch  # rebuild on file changes (requires fswatch)
+make serve  # preview the site locally
 make help   # show all targets
 ```
 
