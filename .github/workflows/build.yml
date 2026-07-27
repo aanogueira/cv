@@ -17,11 +17,13 @@ jobs:
         uses: xu-cheng/latex-action@v4
         with:
           root_file: cv.tex
+          latexmk_use_lualatex: true
 
       - name: Build cv-dark.pdf
         uses: xu-cheng/latex-action@v4
         with:
           root_file: cv-dark.tex
+          latexmk_use_lualatex: true
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
