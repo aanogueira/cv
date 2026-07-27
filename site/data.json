@@ -17,11 +17,9 @@
   "projects": [
     { "name": "houndr", "stack": "Rust", "desc": "Trigram-based code-search engine with sub-millisecond search and zero-copy mmap indexing.", "href": "https://github.com/aanogueira" },
     { "name": "Code Search", "stack": "Go, Next.js", "desc": "Self-hosted platform for searching across repositories with bulk find-and-replace and automated PR creation.", "href": "https://github.com/aanogueira" },
-    { "name": "git-context", "stack": "Go", "desc": "CLI to switch between multiple Git identities and configurations. 93%+ test coverage.", "href": "https://github.com/aanogueira" },
-    { "name": "howto", "stack": "Go", "desc": "AI-powered shell command assistant (OpenAI, Anthropic, Gemini, DeepSeek).", "href": "https://github.com/aanogueira" },
-    { "name": "crontab-guru", "stack": "Go, Bubble Tea", "desc": "TUI for creating and validating cron expressions with real-time feedback.", "href": "https://github.com/aanogueira" },
-    { "name": "HashPad", "stack": "JS, Web Crypto", "desc": "Zero-knowledge encrypted notepad stored entirely in the URL hash. No backend.", "href": "https://github.com/aanogueira" }
+    { "name": "git-context", "stack": "Go", "desc": "CLI to switch between multiple Git identities and configurations. 93%+ test coverage.", "href": "https://github.com/aanogueira" }
   ],
+  "projectsMoreUrl": "https://github.com/aanogueira",
   "writing": {
     "blurb": "Technical blog and (soon) YouTube channel — deep dives on platform engineering, Go, Rust, and infrastructure.",
     "blog": { "label": "techquests.dev", "href": "https://techquests.dev" }

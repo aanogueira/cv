@@ -91,6 +91,9 @@ function render(data) {
     wrap.appendChild(text("div", "desc", pr.desc));
     app.appendChild(wrap);
   });
+  const more = el("div", "more");
+  more.appendChild(link("→ more on GitHub", data.projectsMoreUrl));
+  app.appendChild(more);
 
   // Writing & video
   app.appendChild(section("writing & video"));
