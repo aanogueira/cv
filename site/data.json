@@ -1,0 +1,39 @@
+{
+  "profile": {
+    "name": "André A. Nogueira",
+    "role": "Senior Platform Engineer",
+    "location": "Lisbon, Portugal",
+    "tagline": "I make infrastructure invisible — self-service platforms at scale.",
+    "about": "Platform engineering leader with 6+ years building developer-centric infrastructure at scale. Promoted twice in under two years at Mollie, where I own the internal cloud platform behind 1000+ Kubernetes clusters and 500+ engineers. Upstream Terraform GCP contributor. Go, Rust & TypeScript."
+  },
+  "links": [
+    { "label": "CV (light)", "href": "https://github.com/aanogueira/cv/releases/latest/download/cv.pdf" },
+    { "label": "CV (dark)", "href": "https://github.com/aanogueira/cv/releases/latest/download/cv-dark.pdf" },
+    { "label": "github", "href": "https://github.com/aanogueira" },
+    { "label": "linkedin", "href": "https://linkedin.com/in/aanogueira" },
+    { "label": "techquests.dev", "href": "https://techquests.dev" },
+    { "label": "youtube (soon)", "href": "https://techquests.dev", "muted": true },
+    { "label": "email", "href": "mailto:aanogueira@protonmail.com" }
+  ],
+  "projects": [
+    { "name": "houndr", "stack": "Rust", "desc": "Trigram-based code-search engine with sub-millisecond search and zero-copy mmap indexing.", "href": "https://github.com/aanogueira" },
+    { "name": "Code Search", "stack": "Go, Next.js", "desc": "Self-hosted platform for searching across repositories with bulk find-and-replace and automated PR creation.", "href": "https://github.com/aanogueira" },
+    { "name": "git-context", "stack": "Go", "desc": "CLI to switch between multiple Git identities and configurations. 93%+ test coverage.", "href": "https://github.com/aanogueira" },
+    { "name": "howto", "stack": "Go", "desc": "AI-powered shell command assistant (OpenAI, Anthropic, Gemini, DeepSeek).", "href": "https://github.com/aanogueira" },
+    { "name": "crontab-guru", "stack": "Go, Bubble Tea", "desc": "TUI for creating and validating cron expressions with real-time feedback.", "href": "https://github.com/aanogueira" },
+    { "name": "HashPad", "stack": "JS, Web Crypto", "desc": "Zero-knowledge encrypted notepad stored entirely in the URL hash. No backend.", "href": "https://github.com/aanogueira" }
+  ],
+  "writing": {
+    "blurb": "Technical blog and (soon) YouTube channel — deep dives on platform engineering, Go, Rust, and infrastructure.",
+    "blog": { "label": "techquests.dev", "href": "https://techquests.dev" },
+    "youtube": { "label": "YouTube (soon)", "href": "https://techquests.dev" }
+  },
+  "experience": [
+    { "company": "Mollie", "role": "Senior Platform Engineer", "years": "2023 – Present" },
+    { "company": "SteelEye", "role": "Site Reliability Engineer", "years": "2021 – 2023" },
+    { "company": "Truphone", "role": "DevSecOps Engineer", "years": "2020 – 2021" },
+    { "company": "La Redoute", "role": "DevOps Engineer", "years": "2019 – 2020" }
+  ],
+  "cvUrl": "https://github.com/aanogueira/cv/releases/latest/download/cv.pdf",
+  "sourceUrl": "https://github.com/aanogueira/cv"
+}
