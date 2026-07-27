@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0d0f12"/>
-  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
-        font-family="ui-monospace, monospace" font-size="30" font-weight="700"
-        fill="#8cc5cf">a</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="André Nogueira">
+  <rect width="64" height="64" rx="13" fill="#0d0f12"/>
+  <circle cx="32" cy="24" r="8.5" fill="#8cc5cf"/>
+  <path d="M16 52a16 16 0 0 1 32 0Z" fill="#8cc5cf"/>
 </svg>
