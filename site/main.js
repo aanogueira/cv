@@ -33,9 +33,25 @@ function render(data) {
   app.innerHTML = "";
   const p = data.profile;
 
+  // Prompt line doubles as the theme switch: `~ $ whoami --theme=light | dark`
   const prompt = el("div", "prompt");
-  prompt.innerHTML = '~ $ whoami<span class="cursor">▊</span>'; // static markup only
+  prompt.appendChild(document.createTextNode("~ $ whoami --theme="));
+  const opt = (name) => {
+    const b = el("button", "opt");
+    b.type = "button";
+    b.dataset.set = name;
+    b.textContent = name;
+    b.addEventListener("click", () => applyTheme(name, true));
+    return b;
+  };
+  const sw = el("span", "switch");
+  sw.appendChild(opt("light"));
+  sw.appendChild(text("span", "sep", " | "));
+  sw.appendChild(opt("dark"));
+  prompt.appendChild(sw);
+  prompt.appendChild(text("span", "cursor", "▊"));
   app.appendChild(prompt);
+  applyTheme(currentTheme(), false); // sync the switch to the active theme
 
   app.appendChild(text("h1", null, p.name));
   app.appendChild(text("div", "role", p.role));
@@ -95,16 +111,26 @@ function render(data) {
 }
 
 // Theme
+function currentTheme() {
+  return document.documentElement.getAttribute("data-theme");
+}
+
+// Apply a theme, optionally persisting the user's explicit choice, and reflect
+// the active state on the in-prompt switch (no-op before the prompt is rendered).
+function applyTheme(theme, persist) {
+  document.documentElement.setAttribute("data-theme", theme);
+  if (persist) localStorage.setItem("theme", theme);
+  document.querySelectorAll(".prompt .opt").forEach((b) => {
+    const active = b.dataset.set === theme;
+    b.classList.toggle("active", active);
+    b.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+}
+
 function initTheme() {
   const saved = localStorage.getItem("theme");
   const sysDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  document.documentElement.setAttribute("data-theme", saved || (sysDark ? "dark" : "light"));
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-    const cur = document.documentElement.getAttribute("data-theme");
-    const next = cur === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-  });
+  applyTheme(saved || (sysDark ? "dark" : "light"), false);
 }
 
 initTheme();
