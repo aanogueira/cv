@@ -1,4 +1,4 @@
-TEX = pdflatex
+TEX = lualatex
 FLAGS = -interaction=nonstopmode
 
 .PHONY: all build dark clean watch help
