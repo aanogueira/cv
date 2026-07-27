@@ -15,6 +15,17 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{2pt}
 
+% Main font: Inter (requires LuaLaTeX/XeLaTeX — see Makefile)
+\usepackage{fontspec}
+\setmainfont{Inter}[
+  Path = fonts/,
+  Extension = .otf,
+  UprightFont = *-Regular,
+  ItalicFont = *-Italic,
+  BoldFont = *-Bold,
+  BoldItalicFont = *-BoldItalic,
+]
+
 % Colors
 \usepackage{xcolor}
 
