@@ -7,8 +7,7 @@
     "about": "Platform engineering leader with 6+ years building developer-centric infrastructure at scale. Promoted twice in under two years at Mollie, where I own the internal cloud platform behind 1000+ Kubernetes clusters and 500+ engineers. Upstream Terraform GCP contributor. Go, Rust & TypeScript."
   },
   "links": [
-    { "label": "CV (light)", "href": "https://github.com/aanogueira/cv/releases/latest/download/cv.pdf" },
-    { "label": "CV (dark)", "href": "https://github.com/aanogueira/cv/releases/latest/download/cv-dark.pdf" },
+    { "label": "cv ↓", "cv": true },
     { "label": "github", "href": "https://github.com/aanogueira" },
     { "label": "linkedin", "href": "https://linkedin.com/in/aanogueira" },
     { "label": "techquests.dev", "href": "https://techquests.dev" },
@@ -34,5 +33,6 @@
     { "company": "La Redoute", "role": "DevOps Engineer", "years": "2019 – 2020" }
   ],
   "cvUrl": "https://github.com/aanogueira/cv/releases/latest/download/cv.pdf",
+  "cvUrlDark": "https://github.com/aanogueira/cv/releases/latest/download/cv-dark.pdf",
   "sourceUrl": "https://github.com/aanogueira/cv"
 }

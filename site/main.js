@@ -28,6 +28,18 @@ function link(label, href, opts) {
   return a;
 }
 
+// A CV download link whose target follows the active theme (light/dark PDF).
+// applyTheme() sets the actual href from the data-cv-* attributes.
+function cvLink(label, data, cls) {
+  const a = el("a", cls ? "cvlink " + cls : "cvlink");
+  a.textContent = label;
+  a.dataset.cvLight = data.cvUrl;
+  a.dataset.cvDark = data.cvUrlDark;
+  a.target = "_blank";
+  a.rel = "noopener";
+  return a;
+}
+
 function render(data) {
   const app = document.getElementById("app");
   app.innerHTML = "";
@@ -51,7 +63,6 @@ function render(data) {
   prompt.appendChild(sw);
   prompt.appendChild(text("span", "cursor", "▊"));
   app.appendChild(prompt);
-  applyTheme(currentTheme(), false); // sync the switch to the active theme
 
   app.appendChild(text("h1", null, p.name));
   app.appendChild(text("div", "role", p.role));
@@ -61,6 +72,7 @@ function render(data) {
   // Links
   const links = el("div", "links");
   data.links.forEach((l) => {
+    if (l.cv) { links.appendChild(cvLink(l.label, data)); return; }
     links.appendChild(link(l.label, l.href, { cls: l.muted ? "muted" : null }));
   });
   app.appendChild(links);
@@ -99,7 +111,7 @@ function render(data) {
     app.appendChild(row);
   });
   const cv = el("div", "cv-link");
-  cv.appendChild(link("→ full history in the CV", data.cvUrl));
+  cv.appendChild(cvLink("→ full history in the CV", data));
   app.appendChild(cv);
 
   // Footer
@@ -108,6 +120,9 @@ function render(data) {
   foot.appendChild(document.createTextNode("© " + year + " André Nogueira · built with plain HTML/CSS · "));
   foot.appendChild(link("source", data.sourceUrl));
   app.appendChild(foot);
+
+  // Now that the switch and CV links exist, sync them to the active theme.
+  applyTheme(currentTheme(), false);
 }
 
 // Theme
@@ -124,6 +139,10 @@ function applyTheme(theme, persist) {
     const active = b.dataset.set === theme;
     b.classList.toggle("active", active);
     b.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  // CV links point at the PDF variant matching the active theme.
+  document.querySelectorAll("a.cvlink").forEach((a) => {
+    a.href = theme === "dark" ? a.dataset.cvDark : a.dataset.cvLight;
   });
 }
 
