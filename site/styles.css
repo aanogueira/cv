@@ -19,7 +19,7 @@
 }
 html[data-theme="dark"] {
   --bg: #0d0f12;  --bg2: #05070a; --fg: #c9d1d9; --fg-strong: #e6edf3;
-  --muted: #5b6673; --accent: #8cc5cf; --rule: #20262e; --cursor: #3fb950;
+  --muted: #8b949e; --accent: #8cc5cf; --rule: #20262e; --cursor: #3fb950;
 }
 html[data-theme="light"] {
   --bg: #ffffff; --bg2: #f6f8fa; --fg: #1f2328; --fg-strong: #000000;
@@ -48,17 +48,19 @@ h1 { font-size: 30px; font-weight: 700; margin: 0; color: var(--fg-strong); lett
 .role { color: var(--accent); font-size: 15px; margin-top: 4px; }
 .loc { color: var(--muted); font-family: var(--mono); font-size: 13px; margin-top: 2px; }
 .tag { color: var(--fg); margin-top: 16px; font-size: 15px; }
+.tag a, .cv-link a { color: var(--accent); text-decoration: none; }
+.tag a:hover, .cv-link a:hover { text-decoration: underline; }
 
 .links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 20px; font-family: var(--mono); font-size: 13.5px; }
 .links a { color: var(--accent); text-decoration: none; }
 .links a:hover { text-decoration: underline; }
-.links a.muted { color: var(--muted); cursor: default; pointer-events: auto; }
+.links a.muted { color: var(--muted); }
 
-.sec { font-family: var(--mono); color: var(--muted); font-size: 13px; text-transform: lowercase;
+.sec { font-family: var(--mono); color: var(--muted); font-size: 13px; font-weight: 400; text-transform: lowercase;
   letter-spacing: 0.06em; margin: 40px 0 16px; border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
 
 .project { margin-bottom: 16px; }
-.project .name { color: var(--fg-strong); font-weight: 600; }
+.project .name { color: var(--fg-strong); font-weight: 600; text-decoration: none; }
 .project a.name:hover { color: var(--accent); }
 .project .stack { color: var(--muted); font-family: var(--mono); font-size: 12px; }
 .project .desc { color: var(--fg); font-size: 14px; margin-top: 3px; }
