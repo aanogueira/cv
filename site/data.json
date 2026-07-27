@@ -26,12 +26,6 @@
     "blurb": "Technical blog and (soon) YouTube channel — deep dives on platform engineering, Go, Rust, and infrastructure.",
     "blog": { "label": "techquests.dev", "href": "https://techquests.dev" }
   },
-  "experience": [
-    { "company": "Mollie", "role": "Senior Platform Engineer", "years": "2023 – Present" },
-    { "company": "SteelEye", "role": "Site Reliability Engineer", "years": "2021 – 2023" },
-    { "company": "Truphone", "role": "DevSecOps Engineer", "years": "2020 – 2021" },
-    { "company": "La Redoute", "role": "DevOps Engineer", "years": "2019 – 2020" }
-  ],
   "cvUrl": "https://github.com/aanogueira/cv/releases/latest/download/cv.pdf",
   "cvUrlDark": "https://github.com/aanogueira/cv/releases/latest/download/cv-dark.pdf",
   "sourceUrl": "https://github.com/aanogueira/cv"

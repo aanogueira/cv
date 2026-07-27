@@ -100,20 +100,6 @@ function render(data) {
   wline.appendChild(document.createTextNode(" — " + w.blurb));
   app.appendChild(wline);
 
-  // Experience
-  app.appendChild(section("experience"));
-  data.experience.forEach((e) => {
-    const row = el("div", "exp");
-    const co = text("span", "co", e.company + " ");
-    co.appendChild(text("span", "r", "— " + e.role));
-    row.appendChild(co);
-    row.appendChild(text("span", "yr", e.years));
-    app.appendChild(row);
-  });
-  const cv = el("div", "cv-link");
-  cv.appendChild(cvLink("→ full history in the CV", data));
-  app.appendChild(cv);
-
   // Footer
   const year = new Date().getFullYear();
   const foot = el("div", "foot");
