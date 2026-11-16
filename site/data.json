@@ -3,27 +3,21 @@
     "name": "André A. Nogueira",
     "role": "Senior Platform Engineer",
     "location": "Lisbon, Portugal",
-    "tagline": "I make infrastructure invisible — self-service platforms at scale.",
-    "about": "Platform engineering leader with 6+ years building developer-centric infrastructure at scale. Promoted twice in under two years at Mollie, where I own the internal cloud platform behind 1000+ Kubernetes clusters and 500+ engineers. Upstream Terraform GCP contributor. Go, Rust & TypeScript."
+    "timeZone": "Europe/Lisbon",
+    "city": "Lisbon",
+    "tagline": "Turning infrastructure into products other engineers build on."
   },
   "links": [
-    { "label": "cv ↓", "cv": true },
-    { "label": "github", "href": "https://github.com/aanogueira" },
-    { "label": "linkedin", "href": "https://linkedin.com/in/aanogueira" },
-    { "label": "techquests.dev", "href": "https://techquests.dev" },
-    { "label": "youtube (soon)", "href": "https://techquests.dev", "muted": true },
-    { "label": "email", "href": "mailto:aanogueira@protonmail.com" }
+    { "group": "Work", "label": "CV", "handle": "PDF download", "cv": true },
+    { "group": "Work", "label": "GitHub", "handle": "aanogueira", "href": "https://github.com/aanogueira" },
+    { "group": "Work", "label": "LinkedIn", "handle": "in/aanogueira", "href": "https://linkedin.com/in/aanogueira" },
+    { "group": "Writing & video", "label": "TechQuests", "handle": "techquests.dev", "href": "https://techquests.dev" },
+    { "group": "Writing & video", "label": "YouTube", "handle": "@techquestsdev", "href": "https://www.youtube.com/@techquestsdev" },
+    { "group": "Contact", "label": "Email", "handle": "aanogueira@protonmail.com", "href": "mailto:aanogueira@protonmail.com", "copy": "aanogueira@protonmail.com" },
+    { "group": "Contact", "label": "X", "handle": "@0xaanogueira", "href": "https://x.com/0xaanogueira" },
+    { "group": "Contact", "label": "Discord", "handle": "aanogueira", "href": "https://discord.com/users/aanogueira" }
   ],
-  "projects": [
-    { "name": "houndr", "stack": "Rust", "desc": "Trigram-based code-search engine with sub-millisecond search and zero-copy mmap indexing.", "href": "https://github.com/aanogueira" },
-    { "name": "Code Search", "stack": "Go, Next.js", "desc": "Self-hosted platform for searching across repositories with bulk find-and-replace and automated PR creation.", "href": "https://github.com/aanogueira" },
-    { "name": "git-context", "stack": "Go", "desc": "CLI to switch between multiple Git identities and configurations. 93%+ test coverage.", "href": "https://github.com/aanogueira" }
-  ],
-  "projectsMoreUrl": "https://github.com/aanogueira",
-  "writing": {
-    "blurb": "Technical blog and (soon) YouTube channel — deep dives on platform engineering, Go, Rust, and infrastructure.",
-    "blog": { "label": "techquests.dev", "href": "https://techquests.dev" }
-  },
+  "site": "aanogueira.techquests.dev",
   "cvUrl": "https://github.com/aanogueira/cv/releases/latest/download/cv.pdf",
   "cvUrlDark": "https://github.com/aanogueira/cv/releases/latest/download/cv-dark.pdf",
   "sourceUrl": "https://github.com/aanogueira/cv"

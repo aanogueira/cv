@@ -1,31 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>André A. Nogueira — Senior Platform Engineer</title>
-  <meta name="description" content="André A. Nogueira — Senior Platform Engineer in Lisbon. Platforms at scale, open-source tools in Go & Rust, and writing at techquests.dev.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>André A. Nogueira | Senior Platform Engineer</title>
+  <meta name="description" content="André A. Nogueira, Senior Platform Engineer in Lisbon. CV, writing at techquests.dev, and where to find me.">
   <meta name="author" content="André A. Nogueira">
+  <meta name="theme-color" content="#191724">
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="André A. Nogueira — Senior Platform Engineer">
-  <meta property="og:description" content="Platforms at scale, open-source tools in Go & Rust, and writing at techquests.dev.">
-  <meta property="og:url" content="https://aanogueira.dev">
-  <meta property="og:image" content="https://aanogueira.dev/assets/og-image.png">
+  <meta property="og:title" content="André A. Nogueira | Senior Platform Engineer">
+  <meta property="og:description" content="CV, writing at techquests.dev, and where to find me.">
+  <meta property="og:url" content="https://aanogueira.techquests.dev">
+  <meta property="og:image" content="https://aanogueira.techquests.dev/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/FiraMono-500.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main id="app" class="wrap">
-    <noscript>
-      <p>This page renders from <code>data.json</code> with JavaScript.
-      Meanwhile: <a href="https://github.com/aanogueira/cv/releases/latest/download/cv.pdf">download the CV</a>,
-      or visit <a href="https://github.com/aanogueira">GitHub</a> and
-      <a href="https://techquests.dev">techquests.dev</a>.</p>
-    </noscript>
+  <main class="split">
+    <section class="who" aria-labelledby="name">
+      <div class="who-top">
+        <a class="brand" href="https://techquests.dev" aria-label="TechQuests">
+          <svg class="loop" viewBox="-375 -215 770 390" aria-hidden="true" focusable="false">
+            <path stroke-width="30" d="M-350 0A155 155 0 0 1-71.9-94L71.9 94A155 155 0 1 0 71.9-94L-71.9 94"/>
+            <path class="a1" stroke-width="22" d="M-142.5 90.9A105 105 0 0 1-285.9 52.5"/>
+            <path class="a2" stroke-width="22" d="M124.9-192.6A205 205 0 0 1 372.5-102.5"/>
+          </svg>
+        </a>
+        <span class="site" id="site">aanogueira.techquests.dev</span>
+      </div>
+
+      <div class="who-main">
+        <h1 id="name" class="name">
+          <span class="name-line">André A.</span>
+          <span class="name-line">Nogueira<span class="dot" aria-hidden="true">.</span></span>
+        </h1>
+        <p class="role" id="role">Senior Platform Engineer</p>
+        <p class="loc" id="loc">Lisbon, Portugal</p>
+        <p class="tag" id="tag">Turning infrastructure into products other engineers build on.</p>
+      </div>
+
+      <div class="who-bottom">
+        <span id="city">Lisbon</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <time id="clock" class="clock" aria-label="Local time in Lisbon">--:--</time>
+      </div>
+    </section>
+
+    <section class="where" aria-label="Links">
+      <div class="where-inner">
+        <div id="groups" class="groups">
+          <noscript>
+            <p class="noscript">
+              <a href="https://github.com/aanogueira/cv/releases/latest/download/cv.pdf">Download the CV</a>,
+              or visit <a href="https://github.com/aanogueira">GitHub</a> and
+              <a href="https://techquests.dev">techquests.dev</a>.
+            </p>
+          </noscript>
+        </div>
+        <footer class="foot" id="foot"></footer>
+        <p class="sr-only" id="status" aria-live="polite"></p>
+      </div>
+    </section>
   </main>
 
   <script src="main.js"></script>
