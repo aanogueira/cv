@@ -1,0 +1,112 @@
+#!/usr/bin/env python3
+"""Copy LinkedIn profile fields from content/linkedin.md to the clipboard.
+
+LinkedIn has no self-serve API for editing profile sections, so syncing is
+copy and paste. This keeps it to one keystroke per field and checks lengths.
+
+Usage:
+  scripts/linkedin list         show every field with its length and limit
+  scripts/linkedin check        exit 1 if any field is over its limit
+  scripts/linkedin copy KEY     copy one field (e.g. headline, about, mollie)
+  scripts/linkedin walk         copy each field in order, Enter to advance
+"""
+
+import argparse
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+SOURCE = Path(__file__).resolve().parent.parent / "content" / "linkedin.md"
+
+# Limits enforced by LinkedIn's editor. They are not in LinkedIn's official
+# docs, so treat them as best-effort.
+LIMITS = {"headline": 220, "about": 2600, "description": 2000}
+
+CLIPBOARDS = (["pbcopy"], ["wl-copy"], ["xclip", "-selection", "clipboard"])
+
+
+def slug(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def parse(text):
+    """Return an ordered dict of key -> (value, limit or None)."""
+    lines = text.splitlines()
+    fields = {"headline": (lines[1].strip(), LIMITS["headline"])}
+    parts = re.split(r"^(#{2,3}) (.+)$", text, flags=re.M)
+    for i in range(1, len(parts), 3):
+        level, title, body = parts[i], parts[i + 1].strip(), parts[i + 2]
+        body = body.split("\n---")[0].strip()
+        if level == "##":
+            if title == "About":
+                fields["about"] = (body, LIMITS["about"])
+            continue
+        key = slug(title)
+        desc, skills, started = [], None, False
+        for line in body.splitlines():
+            if line.startswith("Skills:"):
+                skills = line[len("Skills:"):].strip()
+                break
+            # Title, dates and location are short lines; the description
+            # starts at the first long line or bullet.
+            if not started and (line.startswith("- ") or len(line) > 60):
+                started = True
+            if started:
+                desc.append(line)
+        fields[key] = ("\n".join(desc).strip(), LIMITS["description"])
+        if skills:
+            fields[f"{key}-skills"] = (skills, None)
+    return fields
+
+
+def copy(value):
+    for cmd in CLIPBOARDS:
+        if shutil.which(cmd[0]):
+            subprocess.run(cmd, input=value.encode(), check=True)
+            return
+    sys.exit("No clipboard tool found (pbcopy, wl-copy or xclip).")
+
+
+def status(value, limit):
+    if limit is None:
+        return f"{len(value)} chars"
+    flag = "OVER" if len(value) > limit else "ok"
+    return f"{len(value)}/{limit} {flag}"
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    sub = parser.add_subparsers(dest="cmd", required=True)
+    sub.add_parser("list")
+    sub.add_parser("check")
+    sub.add_parser("walk")
+    copy_cmd = sub.add_parser("copy")
+    copy_cmd.add_argument("key")
+    args = parser.parse_args()
+
+    fields = parse(SOURCE.read_text())
+
+    if args.cmd == "list":
+        for key, (value, limit) in fields.items():
+            print(f"{key:24} {status(value, limit)}")
+    elif args.cmd == "check":
+        over = [k for k, (v, lim) in fields.items() if lim and len(v) > lim]
+        for key in over:
+            print(f"{key}: {status(*fields[key])}")
+        sys.exit(1 if over else 0)
+    elif args.cmd == "copy":
+        if args.key not in fields:
+            sys.exit(f"Unknown key {args.key!r}. Keys: {', '.join(fields)}")
+        copy(fields[args.key][0])
+        print(f"Copied {args.key} ({status(*fields[args.key])}).")
+    elif args.cmd == "walk":
+        for key, (value, limit) in fields.items():
+            copy(value)
+            input(f"Copied {key} ({status(value, limit)}). Paste it, then press Enter. ")
+        print("Done.")
+
+
+if __name__ == "__main__":
+    main()

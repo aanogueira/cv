@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Configure GitHub Pages for this repo: Actions as the source, the custom
+# domain, and HTTPS. Safe to re-run; run it again once DNS resolves to turn
+# on HTTPS. A CNAME file does nothing for Actions-deployed sites, so the
+# domain lives here instead.
+set -euo pipefail
+
+REPO="aanogueira/cv"
+DOMAIN="aanogueira.techquests.dev"
+
+if ! gh api "repos/$REPO/pages" >/dev/null 2>&1; then
+  gh api -X POST "repos/$REPO/pages" -f build_type=workflow >/dev/null
+  echo "Enabled Pages (source: GitHub Actions)."
+fi
+
+gh api -X PUT "repos/$REPO/pages" -f build_type=workflow -f cname="$DOMAIN" >/dev/null
+echo "Custom domain: $DOMAIN"
+
+state=$(gh api "repos/$REPO/pages" --jq '.https_certificate.state // "none"')
+if [ "$state" = "approved" ]; then
+  gh api -X PUT "repos/$REPO/pages" -F https_enforced=true >/dev/null
+  echo "HTTPS enforced."
+else
+  echo "Certificate state: $state. Add the DNS record from site/DOMAIN.md, then re-run to enforce HTTPS."
+fi

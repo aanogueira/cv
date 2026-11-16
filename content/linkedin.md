@@ -1,15 +1,15 @@
-Andre Nogueira
-Senior Platform Engineer at Mollie | Building Internal Developer Platforms at Scale | Go, Kubernetes, Cloud Infrastructure
+André Nogueira
+Senior Platform Engineer at Mollie | Internal Developer Platforms, Kubernetes, GCP | Turning infrastructure into products engineers build on
 
 ---
 
 ## About
 
-Promoted twice in under 2 years at Mollie, where I build and own the internal cloud platform behind 1000+ Kubernetes clusters and 500+ engineers. I design systems that let developers ship without thinking about infrastructure – self-service provisioning, automated compliance, service mesh, and onboarding that went from days to 30 minutes.
+I'm a platform engineer with 7+ years building internal developer platforms on GCP, AWS and Azure, most recently in regulated payments at Mollie, where I've been promoted twice in under two years. I find the problems slowing engineering teams down, write the design, align the teams involved, and carry the fix to a company-wide standard.
 
-Before Mollie, I've built platforms at this scale three times over: a full on-prem-to-GCP migration (700+ servers), fintech infrastructure with on-site banking integrations, and an internal developer platform serving 300+ engineers on EKS. I've led sub-teams, contributed upstream to the Terraform GCP provider, and write open-source tools in Go and Rust.
+Recent work: a deployment standard adopted across 40+ product repos; a private PKI that protected bank and payment-partner mTLS through a public CA change and a hard compliance deadline; self-service tooling that cut project setup from days to 30 minutes across a 300+ cluster estate; and internal courses that have trained 180+ engineers.
 
-What drives me: making infrastructure invisible. Open to Senior and Staff-level Platform Engineering roles.
+Before Mollie I built platforms in fintech (SteelEye), telecom (Truphone) and retail (La Redoute). Outside work I build open source tools, including houndr, a Rust code search engine, contribute upstream to the GCP Terraform provider, and write at techquests.dev.
 
 ---
 
@@ -30,18 +30,19 @@ Jan 2024 - Dec 2024
 **Platform Engineer I**
 May 2023 - Dec 2023
 
-Promoted twice in under 2 years. I build and maintain Mollie's internal cloud platform, supporting 500+ engineers across 1000+ Kubernetes clusters. My work focuses on eliminating friction, enabling self-service infrastructure, and hardening systems for compliance. Key contributions:
+Promoted twice in under 2 years, on a 9-person platform team. Key contributions:
 
-- Architected and maintained the company's cloud abstraction platform, managing 1000+ Kubernetes clusters and enabling self-service infrastructure provisioning for 500+ engineers, with Backstage-powered self-service interfaces.
-- Designed a 3-component infrastructure oversight system (data collector, policy analyzer via OPA/Rego, automated action engine) providing real-time visibility and automated remediation across all infrastructure, with full observability.
-- Built an audited, SOC2-compliant permission escalation system enabling temporary cross-system privilege escalation with full audit trails; investigated and hardened broader infrastructure for SOC2 compliance.
-- Automated end-to-end project lifecycle (IAM, cluster provisioning, CI/CD, project scaffolding), reducing onboarding/offboarding from days to 30 minutes.
-- Implemented full lifecycle certificate management with automated rotation and alerting.
-- Deployed service-to-service mTLS via Envoy across all production workflows.
-- Authored reusable Terraform modules; contributed mTLS support to the upstream GCP Terraform provider and GCP Autoneg.
-- Author company-wide courses on the internal cloud platform and Kubernetes; active on-call rotation; mentor within 9-person platform team.
+- Deployment standard: Standardized deployments across 40+ product repos by creating the shared Helm chart and leading the migrations, now the default for all Java, PHP and Go services.
+- Partner mTLS: Protected bank and payment-partner mTLS when a public CA ended client-auth certificates under a fixed compliance deadline. Worked with Security and Risk to ship a private PKI on GCP Certificate Authority Service that avoided the cliff and is now the partner mTLS standard.
+- Service-to-service traffic: Initiated and led the move of internal traffic to one identity-authenticated, cross-region path (Envoy, IAP), onboarding 35+ projects, and wrote the service mesh assessment comparing four mesh options against live data from 300+ clusters.
+- Self-serve platform: Removed the platform team as a bottleneck by proposing and co-building self-service project onboarding and teardown in Go, cutting setup from days to 30 minutes; teams now create and retire ~100 projects a year themselves.
+- Point-of-sale launch: Enabled payment terminals to authenticate directly to the backend for a new in-person payments product, owning the edge mTLS design, a custom API gateway plugin and its test matrix from proof of concept to an on-time launch.
+- Technical direction: Authored 10+ architecture decision records shaping the network and edge roadmap, plus a proposed multi-region network design now in cross-team review.
+- Security and governance: Replaced standing admin access with audited just-in-time privilege escalation, and built a policy engine (OPA/Rego) that continuously checks infrastructure and remediates drift, supporting SOC2.
+- Reliability: Wrote the regional switchover runbooks and built a self-service failover drill.
+- Multiplier: Designed the internal Kubernetes and platform courses (180+ engineers trained) and coached 3 engineers into owning core platform tools.
 
-Skills: Go, Kubernetes, Terraform, GCP, ArgoCD, Helm, Docker, Envoy, Backstage, OPA/Rego, Vault, Prometheus, Grafana, OpenTelemetry
+Skills: Kubernetes, GKE, Terraform, Helm, Envoy, GCP, Backstage, OPA/Rego, PKI, mTLS, Go, Argo CD, Prometheus, Grafana, Datadog, OpenTelemetry
 
 ---
 
@@ -53,12 +54,11 @@ Oct 2021 - May 2023
 
 Greater London, England, United Kingdom
 
-Designed and built end-to-end infrastructure for a fintech startup across AWS and Azure, including data pipelines, observability, and compliance. Traveled on-site to banking clients (UBS) and co-led a distributed team of 6.
+Owned infrastructure end to end for a fintech startup selling to banks, and co-led a distributed team of 6.
 
-- Designed and built end-to-end infrastructure for a fintech startup across AWS and Azure; implemented data pipelines (Airflow, Prefect), Kafka, and Elasticsearch.
-- Traveled on-site to banking clients (including UBS) for integration work under strict privacy constraints; drove SOC2, GDPR, and industry compliance certifications.
-- Built CI/CD with GitHub Actions; deployed ELK and LGTM stacks for observability; managed certificate lifecycle and on-call.
-- Co-led a distributed team of 6 (3 EU + 3 India) with engineering manager, owning system design and platform architecture.
+- Owned infrastructure end to end on AWS and Azure: data pipelines (Airflow, Prefect), Kafka, Elasticsearch, CI/CD and observability.
+- Co-led a distributed team of 6 across the EU and India with the engineering manager, owning system design and platform architecture.
+- Drove the SOC2 and GDPR certifications banking clients required, including on-site integration work with banks under strict privacy constraints.
 
 Skills: AWS, Azure, Kubernetes, GitHub Actions, Kafka, Elasticsearch, Airflow, Prefect, SOC2, GDPR, ELK, LGTM
 
@@ -72,7 +72,7 @@ Oct 2020 - Sep 2021
 
 Lisbon, Portugal
 
-Consultant at Smart Consulting, embedded at Truphone to build security automation tooling and enhance CI/CD pipeline security.
+Consultant at Smart Consulting, embedded at Truphone to build its internal developer platform and secure its delivery pipelines.
 
 ### Truphone
 
@@ -82,14 +82,13 @@ Oct 2020 - Sep 2021
 
 Lisbon, Portugal
 
-Architected an internal developer platform on AWS (EKS) serving 300-400 engineers across ~300 Kubernetes clusters. Led a sub-team of 3, building platform tooling in Go and TypeScript with full lifecycle security controls.
+Designed the internal developer platform on AWS EKS for 300+ engineers, and led a sub-team building its tooling.
 
-- Architected an internal developer platform on AWS (EKS) for a 7-person team serving 300-400 engineers across ~300 Kubernetes clusters, accelerating service bootstrapping and integration.
-- Implemented full lifecycle security controls: code scanning (SonarQube), custom CI runners/controllers, image scanning, and audit trails via GitLab CI.
-- Managed self-hosted Kafka and Spark clusters, Elasticsearch, API gateway configurations, and Keycloak identity provider.
-- Led a sub-team of 3 developers; built Go and TypeScript platform tooling; coordinated design and implementation of platform features.
+- Designed the internal developer platform on AWS EKS that let 300+ engineers across ~300 Kubernetes clusters bootstrap services without waiting on operations.
+- Built security into delivery: code and image scanning, custom CI runners, and GitLab CI audit trails.
+- Led a sub-team of 3 building the platform tooling in Go and TypeScript.
 
-Skills: AWS, Azure, EKS, Kubernetes, Go, TypeScript, GitLab CI, Kafka, Elasticsearch, Spark, SonarQube, Keycloak, LGTM
+Skills: AWS, EKS, Kubernetes, Go, TypeScript, GitLab CI, Kafka, Elasticsearch, Spark, SonarQube, Keycloak
 
 ---
 
@@ -101,7 +100,7 @@ Sep 2019 - Oct 2020
 
 Leiria, Portugal
 
-Consultant at KCS iT, embedded at La Redoute to support cloud migration and infrastructure modernization.
+Consultant at KCS iT, embedded at La Redoute to migrate its on-prem estate to GCP.
 
 ### La Redoute
 
@@ -111,14 +110,13 @@ Sep 2019 - Oct 2020
 
 Leiria, Portugal & Roubaix, France
 
-Joined a newly formed cloud team (7 engineers) to migrate La Redoute's entire on-prem infrastructure to GCP, managing 700+ servers and building CI/CD, observability, and secrets management from scratch.
+Early member of a new cloud team that moved the company's on-prem estate to GCP.
 
-- Joined a newly formed cloud team (7 engineers) to migrate the company's entire on-prem infrastructure to GCP for 500+ engineers; managed 700+ Linux/Windows servers and legacy Puppet configurations.
-- Built CI/CD platform from scratch (Jenkins, GitLab CI) with custom runners; authored Terraform modules for all infrastructure, permissions, and service provisioning.
-- Self-hosted Kafka clusters, databases, and Kubernetes; created Helm charts and adapted Java workloads for cloud-native deployment.
-- Deployed LGTM stack and Nagios for observability; implemented Vault for secrets management; built recovery automation tooling in Go, Python, and Bash.
+- Early member of a new 7-person cloud team that migrated 700+ on-prem servers to GCP for 500+ engineers.
+- Built CI/CD from scratch and the Terraform modules for infrastructure, permissions and provisioning, replacing infrastructure tickets with code.
+- Introduced Vault for secrets management and the Grafana LGTM stack for observability.
 
-Skills: GCP, Azure, Kubernetes, Terraform, Jenkins, GitLab CI, Puppet, Kafka, Vault, Helm, LGTM, Nagios, Go, Python, Bash, Linux
+Skills: GCP, Kubernetes, Terraform, Jenkins, GitLab CI, Puppet, Kafka, Vault, Helm, LGTM, Go, Python, Bash, Linux
 
 ---
 
@@ -128,12 +126,13 @@ Skills: GCP, Azure, Kubernetes, Terraform, Jenkins, GitLab CI, Puppet, Kafka, Va
 
 Side Project
 
+2019 - 2020
+
 Lisbon, Portugal
 
-Co-founded a logistics startup connecting transportation companies with businesses needing delivery solutions. Built the initial proof-of-concept and helped shape the product direction.
+Co-founded a logistics startup connecting transportation companies with businesses needing delivery.
 
-- Designed and built the PoC platform showcasing demand-to-resource matching for logistics operations.
-- Developed matching algorithms to optimize transportation allocation, demonstrating cost-effectiveness.
-- Presented at a startup competition, gaining early exposure and market feedback.
+- Built the first demo and the demand-matching algorithm behind it.
+- Incubated at Startup Leiria; won the mobility category prize at Startup Lisboa.
 
 Skills: Product Development, Algorithm Design, Startup Strategy
